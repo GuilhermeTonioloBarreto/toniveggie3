@@ -1,32 +1,15 @@
-<?php 
-// inicia ou retoma uma seção
-session_start(); 
-?>
-
 <strong>Backend toni veggie</strong>
 <br />
-<br />
+<br />  
 
-<hr />
-<strong>Cadastrar usuário</strong>
-<form action = "backend/usuariosWrite1.php" method="POST">
-    <label for="usuario-nome">Nome do usuário: </label>
-    <input type="text" id="usuarioNome" name="usuarioNome" />
-    <br />
-    <button type="submit">Submit</button>
-</form>
-<hr />
+<div>
+    <form action="/frontend/usuarios.php">
+        <button type="submit">Usuários</submit>
+    </form>
+</div>
 
-
-<hr />
-<strong>Alertas</strong>
-<br />
-<?php 
-if($_SESSION["alertaStatus"] == "1"){
-    echo "Sucesso: " . $_SESSION["alertaMensagem"];
-} else if ($_SESSION["alertaStatus"] == "2"){
-    echo "Erro: " . $_SESSION["alertaMensagem"];
-}
-
-?>
-<hr />
+<div>
+    <form action="/frontend/alimentos.php">
+        <button type="submit">Alimentos</submit>
+    </form>
+</div>
