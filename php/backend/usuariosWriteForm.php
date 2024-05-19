@@ -12,11 +12,6 @@ session_start();
 // Pegar constantes do database
 require 'databaseConstants.php';
 
-$servername = SERVERNAME;
-$username = USERNAME;
-$password = PASSWORD;
-$dbname = DBNAME;
-
 // checar dados recebidos do post
 require 'databaseCheckPost.php';
 
@@ -26,26 +21,39 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 
 // conectar ao banco de dados
-$conn = new mysqli($servername, $username, $password, $dbname);
+$conn = new mysqli(SERVERNAME, USERNAME, PASSWORD, DBNAME);
 
 // Checar conexão
 if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
 
-$insert = "
-  INSERT INTO `usuarios`(`nome`) VALUES ('$usuarioNome')
-";
-$result = $conn->query($insert);
+// condição 1 para o usuário não ser cadastrado: 
+// nome do usuário está vazio
+$condicao1 = strlen($usuarioNome) == 0;
 
-if ($result === TRUE) {
-  $_SESSION['alertaStatus'] = "1";
-  $_SESSION['alertaMensagem'] = "A gravação do nome deu certo" ;
-
-} else {
+if($condicao1){
   $_SESSION['alertaStatus'] = "2";
-  $_SESSION['alertaMensagem'] = $conn->error;
-  
+  $_SESSION['alertaMensagem'] = "O campo Nome está vazio";
+}
+
+// se nenhuma das condições foram alcançadas para não cadastrar o usuário
+// o usuário pode ser cadastrado 
+if(!$condicao1){
+  $insert = "
+    INSERT INTO `usuarios`(`nome`) VALUES ('$usuarioNome')
+  ";
+  $result = $conn->query($insert);
+
+  if ($result === TRUE) {
+    $_SESSION['alertaStatus'] = "1";
+    $_SESSION['alertaMensagem'] = "A gravação do nome deu certo" ;
+
+  } else {
+    $_SESSION['alertaStatus'] = "2";
+    $_SESSION['alertaMensagem'] = $conn->error;
+    
+  }
 }
 
 $conn->close();

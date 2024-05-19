@@ -5,13 +5,8 @@ function usuariosReadAll(){
   // Pegar constantes do database
   require 'databaseConstants.php';
 
-  $servername = SERVERNAME;
-  $username = USERNAME;
-  $password = PASSWORD;
-  $dbname = DBNAME;
-
   // conectar ao banco de dados
-  $conn = new mysqli($servername, $username, $password, $dbname);
+  $conn = new mysqli(SERVERNAME, USERNAME, PASSWORD, DBNAME);
 
   // Checar conexão
   if ($conn->connect_error) {

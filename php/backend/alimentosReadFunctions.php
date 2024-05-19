@@ -5,13 +5,8 @@ function alimentosReadAll($currentUserId){
   // Pegar constantes do database
   require 'databaseConstants.php';
 
-  $servername = SERVERNAME;
-  $username = USERNAME;
-  $password = PASSWORD;
-  $dbname = DBNAME;
-
   // conectar ao banco de dados
-  $conn = new mysqli($servername, $username, $password, $dbname);
+  $conn = new mysqli(SERVERNAME, USERNAME, PASSWORD, DBNAME);
 
   // Checar conexão
   if ($conn->connect_error) {
@@ -24,7 +19,7 @@ function alimentosReadAll($currentUserId){
       unidadesDeMedida.nome as unidade, alimentos.usuarioId
     FROM alimentos
     INNER JOIN unidadesDeMedida ON alimentos.unidadeDeMedidaId = unidadesDeMedida.id
-    WHERE alimentos.usuarioId = 0 OR alimentos.usuarioId = $currentUserId;
+    WHERE alimentos.usuarioId = " . GENERAL_USER_ID . "  OR alimentos.usuarioId = $currentUserId;
   ";
   $result = $conn->query($select);
   $conn->close();
