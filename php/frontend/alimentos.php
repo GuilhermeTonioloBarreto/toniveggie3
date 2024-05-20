@@ -2,9 +2,6 @@
 // inicia ou retoma uma seção - necessário para o recebimento de alertas
 session_start();
 
-// invoca a leitura de usuários
-require './../backend/usuariosReadFunctions.php';
-$nomes = usuariosReadAll();
 
 // invoca a leitura das unidades de medida dos alimentos
 require './../backend/unidadesDeMedidaReadFunctions.php';
