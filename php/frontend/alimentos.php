@@ -47,7 +47,7 @@ $alimentos = alimentosReadAll($_SESSION['currentUserId']);
     <tr>
         <th>nome</th>
         <th>unidade</th>
-        <th>registrou o alimento</th>
+        <th>alimento cadastrado pelo usuario</th>
     <tr>
     
     <?php
@@ -62,6 +62,66 @@ $alimentos = alimentosReadAll($_SESSION['currentUserId']);
     ?>
 </table>
 <hr />
+
+<hr />
+<strong>Atualizar Alimentos</strong>
+
+<form action="/../backend/alimentosUpdateForm.php" method="post">
+    <input type="hidden" name="usuarioId" value="<?php echo $_SESSION['currentUserId'] ?>" />
+
+    <label>Alimento a ser modificado: </label>
+    <select name="alimentoId">
+        <?php
+        foreach($alimentos as $alimento){
+            echo "<option value=" . $alimento['id'] . "> " . $alimento['nome'] . "</option>";
+        }
+        ?>  
+    </select>
+    <br />
+
+    <label>Novo nome do alimento: </label>
+    <input type="text" name="alimentoNome" />
+    <br />
+
+    <label>Unidade de medida do novo alimento: </label>
+    <select name="unidadeDeMedidaId">
+        <?php
+        foreach($unidadesDeMedida as $unidade){
+            echo "<option value=" . $unidade['id'] . "> " . $unidade['nome'] . "</option>";
+        }
+        ?>
+    </select>
+    <br />
+
+    <button type="submit">Submit</button>
+
+</form>
+<hr />
+
+
+<hr />
+<strong>Deletar Alimentos</strong>
+
+<form action="/../backend/alimentosDeleteForm.php" method="post">
+    <input type="hidden" name="usuarioId" value="<?php echo $_SESSION['currentUserId'] ?>" />
+
+    <label>Alimento a ser Deletado: </label>
+    <select name="alimentoId">
+        <?php
+        foreach($alimentos as $alimento){
+            echo "<option value=" . $alimento['id'] . "> " . $alimento['nome'] . "</option>";
+        }
+        ?>  
+    </select>
+    <br />
+
+    <button type="submit">Submit</button>
+
+</form>
+<hr />
+
+
+
 
 <hr />
 <strong>Alertas</strong>

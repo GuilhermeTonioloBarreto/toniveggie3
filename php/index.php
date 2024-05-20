@@ -13,3 +13,9 @@
         <button type="submit">Alimentos</submit>
     </form>
 </div>
+
+<div>
+    <form action="/frontend/receitasCadastro.php">
+        <button type="submit">Cadastro Receita</submit>
+    </form>
+</div>
