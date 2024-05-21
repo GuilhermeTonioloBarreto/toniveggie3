@@ -35,8 +35,7 @@ $alimentos = alimentosReadAll($_SESSION['currentUserId']);
         <tr>
             <th></th>
             <th>Quantidade</th>
-            <th>Unidade de Medida</th>
-            <th>Ingrediente</th>
+            <th>Unidade de medida + Ingrediente</th>
         </tr>
     <?php
     for($i = 1; $i <= 30; $i++){
@@ -47,16 +46,13 @@ $alimentos = alimentosReadAll($_SESSION['currentUserId']);
         echo "</td>";
 
         echo "<td>";
-        echo "<input type='number' name='ingredienteQuantidade$i' />";
+        echo "<input type='number' name='ingredientesQuantidades[]' value='0' />";
         echo "</td>";
 
         echo "<td>";
-        echo "</td>";
-
-        echo "<td>";
-        echo "<select name='ingrediente$i'>"; 
+        echo "<select name='ingredientesId[]'>"; 
         foreach($alimentos as $alimento){
-            echo "<option value=" . $alimento['id'] . "> " . $alimento['nome'] . "</option>";
+            echo "<option value=" . $alimento['id'] . "> " . $alimento['unidade'] . " de " . $alimento['nome'] . "</option>";
         } 
         echo "</select>";
         echo "</td>";

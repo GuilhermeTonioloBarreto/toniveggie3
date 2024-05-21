@@ -8,4 +8,10 @@ function checar_dados_post($data) {
   return $data;
 }
 
+function checar_dados_post_array($array){
+  foreach($array as $element){
+    checar_dados_post($element);
+  }
+  return $array;
+}
 ?>
