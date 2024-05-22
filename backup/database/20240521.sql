@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: db
--- Tempo de geração: 21/05/2024 às 03:38
+-- Tempo de geração: 22/05/2024 às 02:36
 -- Versão do servidor: 10.11.6-MariaDB-1:10.11.6+maria~ubu2204
 -- Versão do PHP: 8.2.14
 
@@ -126,6 +126,14 @@ CREATE TABLE `receitas` (
   `dataDeCriacao` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Despejando dados para a tabela `receitas`
+--
+
+INSERT INTO `receitas` (`id`, `usuarioId`, `nome`, `descricao`, `quantidadeDePorcoes`, `i1`, `i2`, `i3`, `i4`, `i5`, `i6`, `i7`, `i8`, `i9`, `i10`, `i11`, `i12`, `i13`, `i14`, `i15`, `i16`, `i17`, `i18`, `i19`, `i20`, `i21`, `i22`, `i23`, `i24`, `i25`, `i26`, `i27`, `i28`, `i29`, `i30`, `q1`, `q2`, `q3`, `q4`, `q5`, `q6`, `q7`, `q8`, `q9`, `q10`, `q11`, `q12`, `q13`, `q14`, `q15`, `q16`, `q17`, `q18`, `q19`, `q20`, `q21`, `q22`, `q23`, `q24`, `q25`, `q26`, `q27`, `q28`, `q29`, `q30`, `preparo`, `dataDeCriacao`) VALUES
+(1, 46, 'ji', 'iuh', 9, 98, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '.nm', '2024-05-22 01:40:16'),
+(2, 46, 'abobora', 'a abobora é bem gostosa', 3, 54, 104, 109, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 300, 12, 45, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'ferva a abóbora\r\ncoma ela fria', '2024-05-22 01:41:54');
+
 -- --------------------------------------------------------
 
 --
@@ -244,7 +252,7 @@ ALTER TABLE `alimentos`
 -- AUTO_INCREMENT de tabela `receitas`
 --
 ALTER TABLE `receitas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de tabela `unidadesDeMedida`
