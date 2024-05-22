@@ -25,6 +25,12 @@ session_start();
     </form>
 </div>
 
+<div>
+    <form action="/frontend/receitasVisualizarPrevias.php">
+        <button type="submit">Visualizar Prévia das Receitas</submit>
+    </form>
+</div>
+
 <hr />
 <strong>Alertas</strong>
 <br />
