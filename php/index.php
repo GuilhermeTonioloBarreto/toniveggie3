@@ -1,3 +1,8 @@
+<?php
+// inicia ou retoma uma seção - necessário para o recebimento de alertas
+session_start();
+?>
+
 <strong>Backend toni veggie</strong>
 <br />
 <br />  
@@ -19,3 +24,12 @@
         <button type="submit">Cadastro Receita</submit>
     </form>
 </div>
+
+<hr />
+<strong>Alertas</strong>
+<br />
+<?php
+// chama a função de exibição de alertas
+require './frontend/alertas.php'
+?>
+<hr />
